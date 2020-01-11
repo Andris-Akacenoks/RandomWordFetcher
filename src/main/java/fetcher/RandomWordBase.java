@@ -9,8 +9,6 @@ public class RandomWordBase {
     private String fileLocation = null;
     RestHelper rest = new RestHelper();
 
-    public RandomWordBase() {}
-
     public RandomWordBase(String apiKey) {
         this.apiKey = apiKey;
     }

@@ -9,10 +9,6 @@ import java.util.Set;
 
 public class RandomWordFetcher extends RandomWordBase implements RandomWord {
 
-    public RandomWordFetcher() {
-        super();
-    }
-
     public RandomWordFetcher(String apiKey) {
         super(apiKey);
     }
