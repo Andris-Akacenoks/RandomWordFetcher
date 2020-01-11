@@ -1,7 +1,6 @@
 package fetcher;
 
 import helpers.FileHelper;
-import helpers.RestHelper;
 
 import java.io.IOException;
 import java.util.HashSet;
