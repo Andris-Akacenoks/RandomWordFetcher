@@ -18,8 +18,7 @@ public class RandomWordTests {
     @Test
     public void writeFetchedCountTest() {
         fileHelper = new FileHelper();
-        randomWord = new RandomWordFetcher(Main.API_KEY);
-        randomWord.fetchWords(10, 3);
+        randomWord = new RandomWordFetcher(Main.API_KEY).fetchWords(10, 3);
         int wordCount = randomWord.getFetchedCount();
         randomWord.writeFetchedCount();
         String fileContents = fileHelper.read(randomWord.getFileLocation());
@@ -30,8 +29,7 @@ public class RandomWordTests {
     @Test
     public void writeTotalFetchedCharsTest() {
         fileHelper = new FileHelper();
-        randomWord = new RandomWordFetcher(Main.API_KEY);
-        randomWord.fetchWords(10, 3);
+        randomWord = new RandomWordFetcher(Main.API_KEY).fetchWords(10, 3);
         int charCount = randomWord.getTotalFetchedChars();
         randomWord.writeTotalFetchedChars();
         String fileContents = fileHelper.read(randomWord.getFileLocation());
@@ -42,8 +40,7 @@ public class RandomWordTests {
     @Test
     public void writeTotalUniqueCharsTest() {
         fileHelper = new FileHelper();
-        randomWord = new RandomWordFetcher(Main.API_KEY);
-        randomWord.fetchWords(10, 3);
+        randomWord = new RandomWordFetcher(Main.API_KEY).fetchWords(10, 3);
         int uniqueCharsCount = randomWord.getTotalUniqueChars();
         randomWord.writeTotalUniqueChars();
         String fileContents = fileHelper.read(randomWord.getFileLocation());
@@ -54,8 +51,7 @@ public class RandomWordTests {
     @Test
     public void writeLongestWordTest() {
         fileHelper = new FileHelper();
-        randomWord = new RandomWordFetcher(Main.API_KEY);
-        randomWord.fetchWords(10, 3);
+        randomWord = new RandomWordFetcher(Main.API_KEY).fetchWords(10, 3);
         String longestWord = randomWord.getLongestWord();
         randomWord.writeLongestWord();
         String fileContents = fileHelper.read(randomWord.getFileLocation());
@@ -66,8 +62,7 @@ public class RandomWordTests {
     @Test
     public void writeFetchedTextTest() {
         fileHelper = new FileHelper();
-        randomWord = new RandomWordFetcher(Main.API_KEY);
-        randomWord.fetchWords(10, 3);
+        randomWord = new RandomWordFetcher(Main.API_KEY).fetchWords(10, 3);
         String fetchedText = randomWord.getFetchedText();
         randomWord.writeFetchedText();
         String fileContents = fileHelper.read(randomWord.getFileLocation());
