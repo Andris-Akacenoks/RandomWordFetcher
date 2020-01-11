@@ -17,7 +17,7 @@ public class RandomWordTests {
     String sampleWords = "[\"intender\", \"isling\", \"hunk\", \"washiest\", \"entropically\", \"corporalities\", \"tasteable\", \"bilby\", \"aglycones\", \"loyalist\"]";
     String apiKey = "5E0SCOBD";
     int numberOfWords = 10;
-    int maxRetryCount = 3;
+    int maxRetryCount = 2;
 
     @Before
     public void mockRestResponse() throws IOException {

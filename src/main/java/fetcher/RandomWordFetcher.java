@@ -32,17 +32,20 @@ public class RandomWordFetcher extends RandomWordBase implements RandomWord {
         }
         String requestUrl = getBaseUrl()+"/word?key="+getApiKey()+"&number="+numberOfWords;
         String words = null;
-        boolean fetched = false;
         int attempts = 0;
-        while (!fetched && maxNumberOfAttempts > attempts) {
+        while (true) {
             try {
                 words = rest.get(requestUrl);
-                fetched = true;
+                break;
             } catch (IOException e) {
                 System.out.println("Failed to fetch words: "+e);
-                attempts++;
-                System.out.println("Retrying... Attempt: "+attempts+"/"+maxNumberOfAttempts);
-                if(attempts >= maxNumberOfAttempts) {
+                if (maxNumberOfAttempts > 1) {
+                    attempts++;
+                    System.out.println("Retrying "+attempts+"/"+maxNumberOfAttempts);
+                    if(attempts >= maxNumberOfAttempts) {
+                        throw new RandomWordException("Failed to fetch words after "+attempts+" attempts: ", e);
+                    }
+                } else {
                     throw new RandomWordException("Failed to fetch words: ", e);
                 }
             }
