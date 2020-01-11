@@ -1,13 +1,20 @@
 import fetcher.RandomWordFetcher;
-import fetcher.RandomWordFetcherException;
+import fetcher.RandomWord;
+import fetcher.RandomWordException;
 
 public class Main {
 
     static final String API_KEY = "RPGS9YWT";
 
-    public static void main(String[] args) throws RandomWordFetcherException {
-        RandomWordFetcher wordFetcher = new RandomWordFetcher(API_KEY);
-        log(wordFetcher.fetch(9, 3));
+    public static void main(String[] args) throws RandomWordException {
+        RandomWord randomWord = new RandomWordFetcher(API_KEY);
+
+        randomWord.fetchWords(10, 3);
+        randomWord.writeFetchedCount();
+        randomWord.writeTotalFetchedChars();
+        randomWord.writeTotalUniqueChars();
+        randomWord.writeLongestWord();
+        randomWord.writeFetchedText();
     }
 
     static void log(String s) {

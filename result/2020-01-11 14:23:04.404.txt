@@ -1,0 +1,5 @@
+Count of fetched words: 10
+Total count of all fetched characters: 82
+Total count of unique characters: 19
+The longest word: corporalities
+Fetched text: Intender isling hunk washiest entropically corporalities tasteable bilby aglycones loyalist.
