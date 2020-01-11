@@ -48,8 +48,8 @@ public class RandomWordTests {
         randomWord = new RandomWordFetcher(Main.API_KEY);
         randomWord.setWords(sampleWords);
         assertEquals(
-                "Intender isling hunk washiest entropically corporalities tasteable bilby aglycones loyalist.",
-                randomWord.getFetchedText()
+            "Intender isling hunk washiest entropically corporalities tasteable bilby aglycones loyalist.",
+            randomWord.getFetchedText()
         );
     }
 
