@@ -47,6 +47,7 @@ public class RandomWordFetcher extends RandomWordBase implements RandomWord {
         setWords(words);
     }
 
+    @Override
     public int getTotalFetchedChars() {
         int totalCharCount = 0;
         for(String word : getWordsArray()) {
@@ -55,10 +56,12 @@ public class RandomWordFetcher extends RandomWordBase implements RandomWord {
         return totalCharCount;
     }
 
+    @Override
     public int getFetchedCount() {
         return getWordsArray().length;
     }
 
+    @Override
     public int getTotalUniqueChars() {
         Set<Character> uniqueChars = new HashSet<Character>();
         for(String word : getWordsArray()) {
@@ -69,6 +72,7 @@ public class RandomWordFetcher extends RandomWordBase implements RandomWord {
         return uniqueChars.size();
     }
 
+    @Override
     public String getLongestWord() {
         String longestWord = getWordsArray()[0];
         for(String word : getWordsArray()) {
@@ -79,6 +83,7 @@ public class RandomWordFetcher extends RandomWordBase implements RandomWord {
         return longestWord;
     }
 
+    @Override
     public String getFetchedText() {
         StringBuilder fetchedText = new StringBuilder();
         for(int i=0; i<getWordsArray().length; i++) {
