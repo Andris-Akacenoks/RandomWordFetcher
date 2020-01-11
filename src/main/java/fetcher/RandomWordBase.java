@@ -1,10 +1,15 @@
 package fetcher;
 
+import helpers.RestHelper;
+
 public class RandomWordBase {
     private String apiKey;
     private String baseUrl = "https://random-word-api.herokuapp.com";
     private String words;
     private String fileLocation = null;
+    RestHelper rest = new RestHelper();
+
+    public RandomWordBase() {}
 
     public RandomWordBase(String apiKey) {
         this.apiKey = apiKey;
@@ -45,5 +50,9 @@ public class RandomWordBase {
 
     public void setFileLocation(String fileLocation) {
         this.fileLocation = fileLocation;
+    }
+
+    public void setRestHelper(RestHelper rest) {
+        this.rest = rest;
     }
 }

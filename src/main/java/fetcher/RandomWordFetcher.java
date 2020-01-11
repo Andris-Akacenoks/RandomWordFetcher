@@ -9,6 +9,10 @@ import java.util.Set;
 
 public class RandomWordFetcher extends RandomWordBase implements RandomWord {
 
+    public RandomWordFetcher() {
+        super();
+    }
+
     public RandomWordFetcher(String apiKey) {
         super(apiKey);
     }
@@ -26,11 +30,10 @@ public class RandomWordFetcher extends RandomWordBase implements RandomWord {
         if (numberOfWords < 10) {
             throw new RandomWordException("Word count of "+numberOfWords+" is too small. We need at least 10.");
         }
-        RestHelper rest = new RestHelper();
         String requestUrl = getBaseUrl()+"/word?key="+getApiKey()+"&number="+numberOfWords;
         String words = null;
         boolean fetched = false;
-        int attempts = 1;
+        int attempts = 0;
         while (!fetched && maxNumberOfAttempts > attempts) {
             try {
                 words = rest.get(requestUrl);
