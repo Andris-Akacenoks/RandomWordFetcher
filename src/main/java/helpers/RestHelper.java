@@ -11,11 +11,10 @@ public class RestHelper {
     private OkHttpClient client = new OkHttpClient();
 
     public String get(String url) throws IOException {
-        Response response;
         Request request = new Request.Builder()
                 .url(url)
                 .build();
-        response = client.newCall(request).execute();
+        Response response = client.newCall(request).execute();
         if (response.body() != null) {
             return response.body().string();
         }

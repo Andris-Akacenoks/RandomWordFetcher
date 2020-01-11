@@ -47,44 +47,39 @@ public class RandomWordFetcher extends RandomWordBase implements RandomWord {
         setWords(words);
     }
 
-    @Override
-    public void writeFetchedCount() {
-        appendToWordFile("Count of fetched words: "+ getWordsArray().length);
-    }
-
-    @Override
-    public void writeTotalFetchedChars() {
+    public int getTotalFetchedChars() {
         int totalCharCount = 0;
         for(String word : getWordsArray()) {
             totalCharCount += word.length();
         }
-        appendToWordFile("Total count of all fetched characters: "+ totalCharCount);
+        return totalCharCount;
     }
 
-    @Override
-    public void writeTotalUniqueChars() {
+    public int getFetchedCount() {
+        return getWordsArray().length;
+    }
+
+    public int getTotalUniqueChars() {
         Set<Character> uniqueChars = new HashSet<Character>();
         for(String word : getWordsArray()) {
             for(char c : word.toCharArray()) {
                 uniqueChars.add(c);
             }
         }
-        appendToWordFile("Total count of unique characters: " + uniqueChars.size());
+        return uniqueChars.size();
     }
 
-    @Override
-    public void writeLongestWord() {
+    public String getLongestWord() {
         String longestWord = getWordsArray()[0];
         for(String word : getWordsArray()) {
             if (word.length() > longestWord.length()) {
                 longestWord = word;
             }
         }
-        appendToWordFile("The longest word: " + longestWord);
+        return longestWord;
     }
 
-    @Override
-    public void writeFetchedText() {
+    public String getFetchedText() {
         StringBuilder fetchedText = new StringBuilder();
         for(int i=0; i<getWordsArray().length; i++) {
             if(i == 0) {
@@ -97,6 +92,31 @@ public class RandomWordFetcher extends RandomWordBase implements RandomWord {
                 fetchedText.append(getWordsArray()[i]).append(" ");
             }
         }
-        appendToWordFile("Fetched text: " + fetchedText);
+        return fetchedText.toString();
+    }
+
+    @Override
+    public void writeFetchedCount() {
+        appendToWordFile("Count of fetched words: "+ getFetchedCount());
+    }
+
+    @Override
+    public void writeTotalFetchedChars() {
+        appendToWordFile("Total count of all fetched characters: "+ getTotalFetchedChars());
+    }
+
+    @Override
+    public void writeTotalUniqueChars() {
+        appendToWordFile("Total count of unique characters: " + getTotalUniqueChars());
+    }
+
+    @Override
+    public void writeLongestWord() {
+        appendToWordFile("The longest word: " + getLongestWord());
+    }
+
+    @Override
+    public void writeFetchedText() {
+        appendToWordFile("Fetched text: " + getFetchedText());
     }
 }
